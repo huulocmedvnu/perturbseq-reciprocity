@@ -157,7 +157,7 @@ text(C2 + 280, y + 225, "removed before the pair-specific share", 22, anchor="mi
 bars(C3 + 60, y + 205, 470, 120, [100 * g for g in gl], PURPLE, SHORT, 60, fmt="{:.0f}%", ylab="gene-level")
 
 # ------------------------------------------------ row 5: prediction from co-expression
-y = row(4, RED, "Prediction from co-expression", ["Correlation between genes", "in control cells of each", "screen"], "Fig. 6")
+y = row(4, RED, "Prediction of the response", ["Co-expression in control", "cells, or a model trained", "on other knockdowns"], "Figs. 6, 7")
 for k in range(8):
     cell(C2 + 30 + (k % 4) * 30, y + 100 + (k // 4) * 30, GREY)
 text(C2 + 75, y + 175, "control cells", 23, anchor="middle")

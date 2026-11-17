@@ -1,0 +1,164 @@
+screen1	screen2	response	umi_floor	n_genes	folds	predictor	r_whole	r_symmetric_part	r_skew_part	skew_share_of_prediction	median_r_per_knockdown	median_r2_per_knockdown	median_norm_score_per_knockdown	fitted
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	coexpression_global_scale	0.1368	0.1927	-0.0142	0.0004	0.0524	0.0178	-0.0039	
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	coexpression_on_target_scale	0.1842	0.2520	0.0644	0.1102	0.0524	0.0178	-0.0038	
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	training_mean	0.2755	0.2603	0.2903	0.4120	0.2796	0.0782	0.0265	
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	reverse_direction	0.0146	0.5560	-0.5439	0.4827	0.0142	0.0021	-0.5124	
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	ridge_coexpression	0.3507	0.3591	0.3411	0.4244	0.2968	0.0881	0.0276	3,3,3,3,3
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	ridge_received	0.3570	0.3667	0.3459	0.4207	0.3084	0.0951	0.0340	10,10,10,10,10
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	ridge_received_coexpression	0.3597	0.3708	0.3473	0.4243	0.3103	0.0963	0.0323	10,10,10,10,10
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	ridge_all	0.4216	0.4311	0.4110	0.4469	0.3394	0.1152	0.0292	3,3,3,3,3
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	stacked_simple	0.2889	0.2972	0.2800	0.3368	0.2748	0.0755	0.0256	[0.937 0.454 0.005],[0.931 0.463 0.008],[0.924 0.515 0.009],[0.937 0.456 0.003],[0.934 0.458 0.006]
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	stacked_all	0.4251	0.4307	0.4185	0.4445	0.3471	0.1204	0.0404	[0.871 -0.113 0.002 0.066 0.233 0.908],[0.884 -0.083 0.003 0.151 0.154 0.889],[0.851 -0.039 0.002 0.122 0.123 0.919],[0.872 -0.105 0.002 0.092 0.217 0.907],[0.866 -0.084 0.002 0.124 0.165 0.920]
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	ridge_annotations	0.4230	0.4278	0.4172	0.4474	0.3322	0.1111	0.0279	1,1,1,1,1
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	response_scale_from_screen1	0.2836	0.3323	0.2243	0.3560	0.1148	0.0178	0.0037	
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	response_scale_from_screen2	0.3269	0.3682	0.2781	0.3408	0.1324	0.0178	0.0122	
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	mean_expression_global_scale	0.1282	0.0661	0.1891	0.4299	0.0175	0.0443	-0.0124	
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	mean_expression_scale_from_screen2	0.4302	0.4195	0.4420	0.4537	0.2101	0.0443	0.0170	
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	reference_lines	0.4512	0.4665	0.4357	0.4556	0.3954	0.1563	0.0464	
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	stacked_with_reference_lines	0.5162	0.5172	0.5150	0.4430	0.4572	0.2090	0.0712	[0.471 -0.217 -0.008 0.045 0.246 0.664 0.311],[0.469 -0.184 -0.007 0.126 0.182 0.635 0.311],[0.452 -0.148 -0.007 0.066 0.175 0.685 0.313],[0.459 -0.218 -0.007 0.050 0.237 0.669 0.319],[0.461 -0.173 -0.007 0.098 0.181 0.678 0.308]
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	ceiling_screen1	0.6140	0.6174	0.6103	0.4855	0.4437	0.1968	-0.1497	
+reduced/k562ess	reduced/gwps	standardised	0.25	1501	5	coexpression_scale_from_screen2_with_target_gene						0.0337	0.0209	
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	coexpression_global_scale	0.0970	0.1374	-0.0176	0.0009	0.0326	0.0107	-0.0020	
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	coexpression_on_target_scale	0.1347	0.1830	0.0521	0.1134	0.0326	0.0107	-0.0017	
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	training_mean	0.2447	0.2281	0.2611	0.4121	0.2141	0.0459	0.0177	
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	reverse_direction	0.0076	0.5029	-0.4964	0.4884	0.0088	0.0011	-0.3781	
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	ridge_coexpression	0.3202	0.3253	0.3146	0.4349	0.2307	0.0532	0.0173	3,3,3,3,3
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	ridge_received	0.3270	0.3328	0.3206	0.4340	0.2308	0.0542	0.0195	10,10,10,10,10
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	ridge_received_coexpression	0.3288	0.3349	0.3223	0.4376	0.2299	0.0529	0.0197	10,10,10,10,10
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	ridge_all	0.4088	0.4139	0.4033	0.4572	0.2528	0.0642	0.0204	3,3,3,3,3
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	stacked_simple	0.2507	0.2467	0.2558	0.3497	0.2073	0.0431	0.0154	[0.938 0.440 0.006],[0.943 0.451 0.005],[0.951 0.391 -0.002],[0.939 0.447 0.002],[0.939 0.440 0.005]
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	stacked_all	0.4261	0.4308	0.4211	0.4503	0.2707	0.0740	0.0310	[0.875 -0.081 0.002 0.117 0.201 0.877],[0.886 -0.103 0.001 0.162 0.176 0.848],[0.874 -0.077 0.001 0.208 0.098 0.869],[0.873 -0.067 0.001 0.077 0.221 0.864],[0.875 -0.075 0.002 0.244 0.074 0.868]
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	ridge_annotations	0.4226	0.4266	0.4182	0.4523	0.2587	0.0677	0.0232	1,1,1,1,1
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	response_scale_from_screen1	0.2478	0.2805	0.2096	0.3606	0.0834	0.0107	0.0033	
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	response_scale_from_screen2	0.2642	0.2953	0.2284	0.3663	0.0985	0.0107	0.0074	
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	mean_expression_global_scale	0.0806	0.0281	0.1324	0.4327	0.0039	0.0251	-0.0072	
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	mean_expression_scale_from_screen2	0.3311	0.3191	0.3444	0.4565	0.1580	0.0251	0.0098	
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	reference_lines	0.4286	0.4437	0.4133	0.4562	0.3019	0.0912	0.0344	
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	stacked_with_reference_lines	0.5088	0.5113	0.5062	0.4463	0.3616	0.1307	0.0537	[0.486 -0.176 -0.006 0.072 0.219 0.662 0.302],[0.474 -0.225 -0.007 0.120 0.203 0.622 0.313],[0.481 -0.201 -0.007 0.164 0.130 0.640 0.308],[0.473 -0.183 -0.007 0.062 0.212 0.642 0.314],[0.473 -0.179 -0.006 0.175 0.127 0.637 0.313]
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	ceiling_screen1	0.5564	0.5591	0.5534	0.4903	0.3506	0.1229	-0.1219	
+reduced/k562ess	SPLIT	standardised	0.25	1589	5	coexpression_scale_from_screen2_with_target_gene						0.0185	0.0114	
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	coexpression_global_scale	0.1903	0.2687	-0.0210	0.0002	0.1836	0.0808	0.0146	
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	coexpression_on_target_scale	0.0011	0.1253	-0.2283	0.2268	0.1836	0.0808	0.0080	
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	training_mean	0.4695	0.4763	0.4622	0.4193	0.5351	0.2863	0.1449	
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	reverse_direction	0.0174	0.6139	-0.5994	0.4667	0.0212	0.0013	-0.2981	
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	ridge_coexpression	0.4998	0.5025	0.4966	0.4150	0.5328	0.2839	0.1406	1,1,1,1,1
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	ridge_received	0.5045	0.5086	0.4999	0.4198	0.5383	0.2897	0.1450	3,3,10,3,10
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	ridge_received_coexpression	0.5057	0.5097	0.5011	0.4198	0.5378	0.2892	0.1440	3,10,10,3,10
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	ridge_all	0.5655	0.5686	0.5620	0.4341	0.5524	0.3052	0.1478	3,3,3,3,3
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	stacked_simple	0.4716	0.4758	0.4670	0.3900	0.5353	0.2866	0.1446	[0.958 0.218 -0.005],[0.964 0.215 -0.008],[0.965 0.199 -0.006],[0.965 0.206 -0.007],[0.966 0.190 -0.006]
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	stacked_all	0.5716	0.5745	0.5684	0.4280	0.5557	0.3087	0.1494	[0.897 0.145 0.000 0.138 0.291 0.882],[0.907 0.144 -0.001 0.061 0.294 0.895],[0.906 0.130 0.001 0.317 0.108 0.893],[0.904 0.147 -0.000 0.115 0.267 0.887],[0.914 0.135 0.001 0.190 0.196 0.897]
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	ridge_annotations	0.5667	0.5685	0.5646	0.4458	0.5488	0.3012	0.1496	1,1,1,1,1
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	response_scale_from_screen1	0.4108	0.4175	0.4102	0.3251	0.2769	0.0808	0.0459	
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	response_scale_from_screen2	0.4288	0.4331	0.4315	0.3281	0.2842	0.0808	0.0549	
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	mean_expression_global_scale	-0.0416	-0.0274	-0.0541	0.4400	-0.0712	0.0231	-0.0014	
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	mean_expression_scale_from_screen2	0.2578	0.2433	0.2729	0.4814	0.1492	0.0231	0.0076	
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	reference_lines	0.4353	0.4476	0.4227	0.4666	0.3178	0.1010	0.0495	
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	stacked_with_reference_lines	0.6199	0.6197	0.6200	0.4264	0.5858	0.3431	0.1830	[0.759 0.114 -0.007 0.110 0.238 0.710 0.470],[0.765 0.104 -0.008 0.035 0.245 0.712 0.484],[0.768 0.096 -0.006 0.263 0.058 0.704 0.489],[0.767 0.106 -0.007 0.085 0.200 0.713 0.487],[0.771 0.095 -0.006 0.160 0.126 0.712 0.488]
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	ceiling_screen1	0.6731	0.6758	0.6702	0.4737	0.5743	0.3298	0.1188	
+reduced/rpe1	SPLIT	standardised	0.25	1596	5	coexpression_scale_from_screen2_with_target_gene						0.0518	0.0347	
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	coexpression_global_scale	0.1085	0.1523	-0.0156	0.0002	0.0652	0.0125	0.0036	
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	coexpression_on_target_scale	0.0854	0.1403	-0.0187	0.1709	0.0652	0.0125	0.0015	
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	training_mean	0.2934	0.3009	0.2858	0.4196	0.2670	0.0719	0.0368	
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	reverse_direction	0.0221	0.4249	-0.3999	0.4776	0.0137	0.0008	-0.3520	
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	ridge_coexpression	0.3483	0.3673	0.3274	0.3846	0.2659	0.0713	0.0337	3,3,3,3,3
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	ridge_received	0.3536	0.3741	0.3311	0.3870	0.2738	0.0750	0.0362	10,10,10,10,10
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	ridge_received_coexpression	0.3557	0.3763	0.3331	0.3872	0.2720	0.0740	0.0345	10,10,10,10,10
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	ridge_all	0.4116	0.4289	0.3929	0.4056	0.2860	0.0818	0.0403	10,10,10,10,10
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	stacked_simple	0.2952	0.3172	0.2712	0.3756	0.2710	0.0736	0.0367	[0.961 0.211 0.016],[0.964 0.198 0.009],[0.956 0.230 0.016],[0.954 0.232 0.015],[0.967 0.178 0.015]
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	stacked_all	0.4217	0.4402	0.4016	0.4147	0.2902	0.0843	0.0410	[0.852 0.064 0.004 0.176 0.209 0.815],[0.865 0.070 0.003 0.152 0.258 0.777],[0.854 0.060 0.004 0.160 0.239 0.789],[0.846 0.079 0.004 0.149 0.278 0.782],[0.863 0.045 0.005 0.176 0.246 0.795]
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	ridge_annotations	0.4164	0.4315	0.4004	0.4414	0.2853	0.0817	0.0349	1,1,1,1,1
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	response_scale_from_screen1	0.2037	0.2340	0.1666	0.3244	0.0928	0.0125	0.0043	
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	response_scale_from_screen2	0.2402	0.2639	0.2131	0.3303	0.1106	0.0125	0.0114	
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	mean_expression_global_scale	0.0503	0.0371	0.0646	0.4383	0.0185	0.0189	-0.0020	
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	mean_expression_scale_from_screen2	0.2799	0.2836	0.2760	0.4616	0.1364	0.0189	0.0081	
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	reference_lines	0.4125	0.4235	0.4011	0.4621	0.2828	0.0800	0.0318	
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	stacked_with_reference_lines	0.4918	0.5065	0.4760	0.4342	0.3456	0.1194	0.0549	[0.536 -0.116 0.003 0.172 0.160 0.602 0.475],[0.534 -0.120 0.002 0.142 0.207 0.570 0.484],[0.521 -0.117 0.003 0.154 0.182 0.585 0.481],[0.524 -0.104 0.003 0.167 0.193 0.577 0.474],[0.533 -0.120 0.004 0.167 0.177 0.598 0.476]
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	ceiling_screen1	0.4588	0.4703	0.4468	0.4802	0.2679	0.0718	-0.1770	
+reduced/hepg2	SPLIT	standardised	0.25	1738	5	coexpression_scale_from_screen2_with_target_gene						0.0160	0.0118	
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	coexpression_global_scale	0.1125	0.1586	-0.0057	0.0003	0.0619	0.0177	0.0025	
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	coexpression_on_target_scale	0.1147	0.1714	0.0006	0.1129	0.0619	0.0177	0.0007	
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	training_mean	0.2472	0.2450	0.2494	0.3749	0.2403	0.0582	0.0316	
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	reverse_direction	0.0099	0.4218	-0.4110	0.4834	0.0058	0.0006	-0.3745	
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	ridge_coexpression	0.2969	0.3057	0.2876	0.3786	0.2510	0.0630	0.0307	3,3,3,3,3
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	ridge_received	0.2921	0.3015	0.2824	0.3867	0.2498	0.0625	0.0325	10,30,30,10,10
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	ridge_received_coexpression	0.2946	0.3044	0.2844	0.3929	0.2478	0.0621	0.0303	10,30,10,10,10
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	ridge_all	0.3552	0.3637	0.3464	0.4156	0.2647	0.0702	0.0369	10,10,10,10,10
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	stacked_simple	0.2553	0.2588	0.2523	0.3103	0.2418	0.0586	0.0298	[0.933 0.407 -0.005],[0.929 0.377 -0.002],[0.922 0.441 -0.001],[0.929 0.419 -0.001],[0.921 0.444 -0.003]
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	stacked_all	0.3725	0.3794	0.3653	0.4141	0.2819	0.0795	0.0421	[0.911 -0.022 0.000 0.349 0.046 0.797],[0.903 0.007 0.002 0.633 -0.351 0.799],[0.900 0.025 0.001 0.607 -0.325 0.799],[0.906 -0.016 0.002 0.342 0.042 0.800],[0.914 -0.023 0.000 0.304 0.088 0.793]
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	ridge_annotations	0.3668	0.3738	0.3596	0.4286	0.2704	0.0743	0.0346	1,1,1,1,1
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	response_scale_from_screen1	0.2258	0.2600	0.1847	0.3367	0.1137	0.0177	0.0057	
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	response_scale_from_screen2	0.2525	0.2830	0.2173	0.3331	0.1304	0.0177	0.0104	
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	mean_expression_global_scale	0.0825	0.0824	0.0828	0.4233	0.0220	0.0325	-0.0060	
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	mean_expression_scale_from_screen2	0.3238	0.3233	0.3248	0.4476	0.1796	0.0325	0.0127	
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	reference_lines	0.3720	0.3795	0.3645	0.4750	0.2482	0.0616	0.0243	
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	stacked_with_reference_lines	0.4490	0.4549	0.4428	0.4365	0.3309	0.1095	0.0532	[0.635 -0.097 -0.000 0.272 -0.003 0.623 0.346],[0.617 -0.055 0.001 0.534 -0.388 0.617 0.354],[0.625 -0.048 -0.000 0.518 -0.384 0.629 0.347],[0.618 -0.089 0.001 0.247 -0.001 0.617 0.359],[0.628 -0.077 -0.000 0.245 0.018 0.611 0.349]
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	ceiling_screen1	0.4631	0.4667	0.4595	0.4862	0.3372	0.1137	-0.1242	
+reduced/jurkat	SPLIT	standardised	0.25	1643	5	coexpression_scale_from_screen2_with_target_gene						0.0192	0.0119	
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	coexpression_global_scale	0.1388	0.1959	0.0013	0.0006	0.2820	0.5566	0.0029	
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	coexpression_on_target_scale	0.1706	0.1979	0.1397	0.2157	0.2820	0.5566	-0.2758	
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	training_mean	0.2396	0.2364	0.2426	0.4445	0.4193	0.3746	0.0520	
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	reverse_direction	0.0104	0.7348	-0.7278	0.4900	-0.0030	0.0029	-0.0204	
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	ridge_coexpression	0.3185	0.3241	0.3126	0.4514	0.4244	0.3212	0.0407	3,3,3,3,3
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	ridge_received	0.3178	0.3236	0.3116	0.4528	0.4015	0.3031	0.0374	10,10,10,10,3
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	ridge_received_coexpression	0.3292	0.3349	0.3232	0.4559	0.4042	0.3212	0.0442	10,10,10,10,10
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	ridge_all	0.4875	0.4907	0.4842	0.4779	0.4477	0.3307	0.0510	3,3,3,3,3
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	stacked_simple	0.2516	0.2517	0.2568	0.3252	0.4003	0.3817	0.0527	[0.892 0.598 -0.003],[0.896 0.576 -0.005],[0.909 0.538 -0.008],[0.896 0.577 -0.004],[0.895 0.592 -0.003]
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	stacked_all	0.5023	0.5052	0.4992	0.4752	0.4945	0.3691	0.0713	[0.822 -0.084 0.001 0.602 -0.114 0.955],[0.838 -0.209 0.001 0.678 -0.016 0.915],[0.795 -0.078 0.002 0.504 0.129 0.946],[0.788 -0.079 0.002 0.617 -0.061 0.962],[0.835 -0.137 0.002 0.492 0.123 0.961]
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	ridge_annotations	0.4887	0.4919	0.4854	0.4749	0.5247	0.4107	0.0813	1,1,1,1,1
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	response_scale_from_screen1	0.7230	0.7257	0.7203	0.4854	0.6422	0.5566	0.0894	
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	response_scale_from_screen2	0.8727	0.8716	0.8739	0.4859	0.7460	0.5566	0.3493	
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	mean_expression_global_scale	0.2028	0.2025	0.2030	0.4326	0.2749	0.5618	0.0068	
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	mean_expression_scale_from_screen2	0.8750	0.8737	0.8764	0.4862	0.7495	0.5618	0.3532	
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	ceiling_screen1	0.8131	0.8143	0.8117	0.4927	0.7658	0.6000	0.2436	
+reduced/k562ess	SPLIT	unnormalised_counts	0.25	1589	5	coexpression_scale_from_screen2_with_target_gene						0.5473	0.3432	
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	coexpression_global_scale	0.0050	0.0182	-0.0261	0.1357	0.4373	0.4546	0.0004	
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	coexpression_on_target_scale	-0.1367	-0.1029	-0.2009	0.2497	-0.4358	0.4546	-0.2933	
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	training_mean	0.4073	0.3830	0.4297	0.4892	0.6121	0.4392	0.0804	
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	reverse_direction	-0.0152	0.6618	-0.6688	0.5070	-0.0149	0.0012	-0.0178	
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	ridge_coexpression	0.4666	0.4513	0.4796	0.5367	0.6133	0.4311	0.0751	1,1,1,1,3
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	ridge_received	0.4589	0.4433	0.4721	0.5423	0.6203	0.4370	0.0734	10,10,3,3,10
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	ridge_received_coexpression	0.4713	0.4564	0.4838	0.5338	0.6184	0.4398	0.0759	10,10,10,10,10
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	ridge_all	0.5319	0.5198	0.5422	0.5273	0.6671	0.4814	0.1275	3,3,3,3,3
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	stacked_simple	0.4151	0.3972	0.4303	0.5229	0.6066	0.4280	0.0772	[1.042 -1.707 -0.002],[1.070 -95.464 -0.004],[1.048 -2.432 -0.001],[1.051 -3.170 -0.001],[1.051 -2.313 -0.003]
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	stacked_all	0.5354	0.5254	0.5439	0.5284	0.6879	0.5005	0.1480	[0.947 0.747 0.003 0.679 -0.124 0.926],[0.943 5.915 0.001 0.644 -0.158 0.776],[0.941 0.882 0.004 0.589 -0.025 0.930],[0.947 0.804 0.003 0.533 0.061 0.800],[0.958 0.524 0.004 0.547 -0.044 0.952]
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	ridge_annotations	0.5193	0.5065	0.5302	0.5217	0.6891	0.5075	0.1445	1,0.3,1,0.3,1
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	response_scale_from_screen1	0.5361	0.5271	0.5439	0.4972	0.5886	0.4546	0.0737	
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	response_scale_from_screen2	0.7710	0.7651	0.7763	0.4978	0.6743	0.4546	0.2693	
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	mean_expression_global_scale	0.2890	0.2672	0.3082	0.4400	0.4511	0.4779	0.0254	
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	mean_expression_scale_from_screen2	0.8057	0.8011	0.8097	0.4997	0.6913	0.4779	0.2875	
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	ceiling_screen1	0.7419	0.7375	0.7456	0.5069	0.8269	0.6876	0.3161	
+reduced/rpe1	SPLIT	unnormalised_counts	0.25	1596	5	coexpression_scale_from_screen2_with_target_gene						0.4494	0.2676	
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	coexpression_global_scale	0.0289	0.0470	-0.0388	0.0185	0.4340	0.6395	0.0020	
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	coexpression_on_target_scale	0.1052	0.0888	0.1319	0.3049	0.4340	0.6395	-0.7053	
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	training_mean	0.2397	0.2267	0.2526	0.4542	0.4698	0.2648	0.0815	
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	reverse_direction	-0.0060	0.4752	-0.4812	0.4985	0.0010	0.0028	-0.0156	
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	ridge_coexpression	0.2713	0.2513	0.2921	0.4524	0.3984	0.2212	0.0657	3,1,3,3,3
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	ridge_received	0.2721	0.2532	0.2922	0.4461	0.3872	0.2289	0.0561	10,10,10,10,10
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	ridge_received_coexpression	0.2716	0.2528	0.2915	0.4466	0.3746	0.2274	0.0542	10,10,10,10,10
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	ridge_all	0.3651	0.3522	0.3780	0.4784	0.3813	0.2513	0.0457	3,3,3,3,10
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	stacked_simple	0.2353	0.2160	0.2551	0.4397	0.4705	0.2722	0.0803	[0.974 0.386 -0.005],[0.984 0.228 -0.004],[0.982 0.276 -0.006],[0.971 0.397 -0.004],[1.007 -0.173 0.000]
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	stacked_all	0.4073	0.3935	0.4208	0.4924	0.4820	0.3034	0.0800	[0.796 0.353 -0.002 0.052 0.210 0.956],[0.799 0.458 0.000 0.209 0.131 0.960],[0.795 0.213 -0.001 0.275 0.063 0.946],[0.788 0.222 -0.000 -0.002 0.322 0.927],[0.826 0.424 0.001 0.099 0.190 0.937]
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	ridge_annotations	0.4065	0.3942	0.4185	0.4984	0.4989	0.2974	0.0913	1,1,1,1,1
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	response_scale_from_screen1	0.4293	0.4265	0.4320	0.4974	0.5325	0.6395	-0.0155	
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	response_scale_from_screen2	0.8693	0.8664	0.8722	0.4990	0.7997	0.6395	0.4189	
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	mean_expression_global_scale	0.1610	0.1434	0.1791	0.4383	0.4279	0.6429	0.0645	
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	mean_expression_scale_from_screen2	0.8702	0.8672	0.8731	0.4992	0.8018	0.6429	0.4218	
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	ceiling_screen1	0.5381	0.5348	0.5414	0.4991	0.6495	0.5126	0.0477	
+reduced/hepg2	SPLIT	unnormalised_counts	0.25	1738	5	coexpression_scale_from_screen2_with_target_gene						0.6329	0.4172	
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	coexpression_global_scale	0.2037	0.2846	-0.0189	0.0002	0.6004	0.6294	0.0116	
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	coexpression_on_target_scale	0.2775	0.3199	0.2238	0.2717	0.6004	0.6294	-0.3706	
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	training_mean	0.3178	0.3336	0.3014	0.4276	0.6462	0.5553	0.1488	
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	reverse_direction	0.0324	0.6577	-0.6335	0.4751	0.0154	0.0017	-0.0176	
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	ridge_coexpression	0.4057	0.4312	0.3771	0.4069	0.5922	0.4613	0.1006	3,3,3,3,1
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	ridge_received	0.4071	0.4330	0.3777	0.3967	0.5839	0.4634	0.1024	10,10,10,10,10
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	ridge_received_coexpression	0.4046	0.4302	0.3759	0.4104	0.5901	0.4589	0.0992	10,10,10,10,10
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	ridge_all	0.5117	0.5299	0.4918	0.4369	0.5912	0.4720	0.1074	3,3,3,3,3
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	stacked_simple	0.3340	0.3590	0.3063	0.3065	0.6474	0.5651	0.1430	[0.877 0.512 -0.003],[0.899 0.465 -0.004],[0.874 0.534 -0.003],[0.884 0.494 -0.002],[0.874 0.526 -0.004]
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	stacked_all	0.5383	0.5557	0.5192	0.4353	0.6322	0.4865	0.1269	[0.996 -0.299 0.001 0.567 0.297 0.785],[0.930 -0.216 0.003 0.714 0.136 0.910],[0.938 -0.214 0.001 0.734 0.064 0.798],[0.973 -0.203 0.002 0.563 0.195 0.826],[0.933 -0.188 0.001 0.669 0.142 0.764]
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	ridge_annotations	0.5080	0.5269	0.4872	0.4363	0.6662	0.5401	0.1548	0.3,1,0.3,0.3,0.3
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	response_scale_from_screen1	0.6528	0.6614	0.6437	0.4733	0.6870	0.6294	0.1019	
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	response_scale_from_screen2	0.9043	0.9056	0.9029	0.4706	0.7933	0.6294	0.4192	
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	mean_expression_global_scale	0.2913	0.3149	0.2670	0.4226	0.5949	0.6353	0.1320	
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	mean_expression_scale_from_screen2	0.9079	0.9089	0.9069	0.4714	0.7970	0.6353	0.4195	
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	ceiling_screen1	0.7119	0.7192	0.7043	0.4809	0.7582	0.5912	0.2122	
+reduced/jurkat	SPLIT	unnormalised_counts	0.25	1643	5	coexpression_scale_from_screen2_with_target_gene						0.6258	0.4147	

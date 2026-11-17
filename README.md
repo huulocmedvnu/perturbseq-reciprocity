@@ -32,6 +32,11 @@ Definitions, thresholds, the rules fixed in advance and their outcomes are in `A
 | HepG2, cell quarters | 1,738 | 85,938 | 0.75 | 0.78 | 0.475 (0.467 to 0.482) |
 | Jurkat, cell quarters | 1,643 | 56,149 | 0.85 | 0.88 | 0.496 (0.493 to 0.499) |
 
+With all responses to a knockdown withheld, a model trained on the other knockdowns predicted them
+with a correlation of 0.37 to 0.57 with the second screen (skew-symmetric part 0.37 to 0.57), against
+0.10 to 0.19 for co-expression with one scale and 0.24 to 0.43 for co-expression with a scale fitted
+to the scored response (`results/heldout_prediction.tsv`).
+
 Simulated screens with a true share of 0, 0.10, 0.25 and 0.50 return 0.000, 0.100, 0.250 and 0.500.
 All estimates are in `results/`, and the data behind every figure panel are in
 `results/figure_source_data/`.
@@ -48,11 +53,14 @@ All estimates are in `results/`, and the data behind every figure panel are in
   - `gene_level.rs` gene-level terms, sign agreement of the two directions, effect sent and received.
   - `directed_pairs.rs` counts of pairs with a replicated effect in one direction or in both.
   - `linear_response.rs` prediction of the response from co-expression in control cells.
+  - `heldout_prediction.rs` prediction of knockdowns that are held out of the training screen, on
+    the standardised response and on unnormalised counts, against co-expression predictors.
+  - `transfer_prediction.rs` prediction of the response matrix of one cell line from other lines.
 - `scripts/download_annotations.sh` curated gene-pair annotations (DoRothEA, TRRUST, CollecTRI, CORUM,
   transcription start sites). `scripts/complex_families.sh` six complexes named by gene family.
-- `scripts/build_reduced.sh` public single-cell files to `reduced/`.
+- `scripts/build_reduced.sh` public single-cell files to `reduced/` and `reduced_raw/` (count shifts).
 - `run_all.sh` every analysis of the article, from `reduced/` to `results/`.
-- `scripts/plot_figures.py`, `scripts/make_flowchart.py` figures 1 to 6 and their source data.
+- `scripts/plot_figures.py`, `scripts/make_flowchart.py` figures 1 to 7 and their source data.
 - `results/` result tables. `figures/` figure files (PDF).
 
 ## Reproduce
@@ -68,8 +76,8 @@ python3 scripts/make_flowchart.py && python3 scripts/plot_figures.py
 ```
 
 The reduced screens (the output of `build_reduced.sh`) are attached to the release as
-`reduced_screens.tar.zst`, which allows `run_all.sh` to be run without the raw data. Unpack the archive in
-the repository root.
+`reduced_screens.tar.zst` and `reduced_raw_screens.tar.zst`, which allows `run_all.sh` to be run without
+the raw data. Unpack both archives in the repository root.
 
 `run_all.sh` uses all processor threads (set `RAYON_NUM_THREADS` to change this). The bootstrap and
 permutation steps draw from fixed random streams, and repeated runs give identical tables.

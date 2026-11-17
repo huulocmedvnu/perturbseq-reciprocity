@@ -71,3 +71,19 @@ concentrate in pairs with a large skew-symmetric part.
 - Counts of pairs with a replicated effect (|t| of 3 or more in both screens, same sign) in one
   direction or in both. Reverse direction absent: |t| below 2 in both screens.
 - Effect sent and received by each gene.
+- Prediction of held-out knockdowns. The knocked-down genes are divided into five groups. All
+  responses to the knockdown of the genes of one group are withheld from the first screen, a
+  model is fitted to the other knockdowns and its prediction is compared with the second screen
+  for the whole response and its two parts. Comparators: co-expression with one scale, with the
+  on-target effect as scale and with a scale fitted to the scored response, the mean of the
+  training knockdowns, and the reverse direction of each pair.
+  Outcome: the model reached 0.37 to 0.57 for the whole response and for the skew-symmetric
+  part, against 0.10 to 0.19 for co-expression with one scale and 0.24 to 0.43 with a scale
+  fitted to the scored response. With the response to the same knockdown in three other cell
+  lines as a further input it reached 0.45 to 0.62 (ceiling 0.46 to 0.67).
+- The same comparison on unnormalised counts.
+  Outcome: co-expression with a scale fitted to the scored response reached 0.77 to 0.90, and
+  the mean count of each gene with a scale fitted in the same way 0.81 to 0.91. The model
+  trained on other knockdowns reached 0.41 to 0.54 and co-expression with one scale at most 0.20.
+- Prediction of the response matrix of one cell line from the three others.
+  Outcome: 0.49 to 0.54. Co-expression of the target line changed this by -0.04 to 0.02.

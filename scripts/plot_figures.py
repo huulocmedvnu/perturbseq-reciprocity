@@ -1,4 +1,4 @@
-"""Figures 2 to 6 from the tables in results/, with the source data of every panel.
+"""Figures 2 to 7 from the tables in results/, with the source data of every panel.
 
 Usage: python3 scripts/plot_figures.py
 Writes figures/fig*.pdf and .png and results/figure_source_data/*.csv.
@@ -165,4 +165,25 @@ fig.add_hline(y=0, line=dict(color=K, width=1))
 style(fig, 820, 600).update_layout(barmode="group", legend=dict(orientation="h", x=0.0, y=-0.36, yanchor="top"), margin=dict(l=70, r=20, t=40, b=190))
 save(fig, "fig6_linear_response")
 source("fig6_linear_response", lr.drop(columns=["screen1", "screen2"]).assign(screen=lr.screen.str.replace("<br>", " ")))
+
+# ---------------------------------------------------------------- Figure 7: held-out knockdowns
+ho = pd.read_csv(R + "heldout_prediction.tsv", sep="\t")
+ho["screen"] = [("K562,<br>two screens" if "gwps" in b else NAME[a.split("/")[-1]]) for a, b in zip(ho.screen1, ho.screen2)]
+std, raw = ho[ho.response == "standardised"], ho[ho.response == "unnormalised_counts"]
+fig = make_subplots(rows=1, cols=3, subplot_titles=["a  Whole response", "b  Skew-symmetric part", "c  Unnormalised counts"], horizontal_spacing=0.07, column_widths=[0.36, 0.36, 0.28])
+P7 = (("coexpression_global_scale", "Co-expression, one scale", C[2]), ("response_scale_from_screen2", "Co-expression, scale fitted<br>to the scored response", C[0]),
+      ("mean_expression_scale_from_screen2", "Mean expression, scale fitted<br>to the scored response", C[5]), ("training_mean", "Mean of training knockdowns", C[4]),
+      ("stacked_all", "Model trained on other knockdowns", C[1]), ("stacked_with_reference_lines", "With the response in other cell lines", C[3]))
+for col, (d, y) in enumerate(((std, "r_whole"), (std, "r_skew_part"), (raw, "r_whole")), 1):
+    for pred, lab, c in P7:
+        if (pred == "mean_expression_scale_from_screen2") != (col == 3) and pred in ("mean_expression_scale_from_screen2", "stacked_with_reference_lines"): continue
+        s = d[d.predictor == pred]
+        fig.add_trace(go.Bar(x=s.screen, y=s[y], name=lab, marker_color=c, legendgroup=pred, showlegend=(col == 1 or pred == "mean_expression_scale_from_screen2")), 1, col)
+    s = d[d.predictor == "ceiling_screen1"]
+    fig.add_trace(go.Scatter(x=s.screen, y=s[y], mode="markers", marker=dict(color=K, size=11, symbol="line-ew", line=dict(color=K, width=3)), name="Second screen (ceiling)", showlegend=(col == 1)), 1, col)
+    fig.update_xaxes(tickangle=-60, row=1, col=col); fig.update_yaxes(range=[-0.05, 1.0], row=1, col=col)
+fig.update_yaxes(title_text="Correlation with the second screen", row=1, col=1)
+style(fig, 820, 640).update_layout(barmode="group", bargap=0.18, legend=dict(orientation="h", x=0.0, y=-0.33, yanchor="top"), margin=dict(l=70, r=20, t=40, b=230))
+save(fig, "fig7_heldout_prediction")
+source("fig7_heldout_prediction", ho.drop(columns=["screen1", "screen2", "fitted"]).assign(screen=ho.screen.str.replace("<br>", " ")))
 print("figures written to", os.path.abspath(F))
