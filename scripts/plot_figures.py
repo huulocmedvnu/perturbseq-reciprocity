@@ -17,8 +17,8 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 R, F, SD = os.path.join(ROOT, "results/"), os.path.join(ROOT, "figures/"), os.path.join(ROOT, "results/figure_source_data/")
 os.makedirs(F, exist_ok=True); os.makedirs(SD, exist_ok=True)
 C = ["#636EFA", "#EF553B", "#00CC96", "#AB63FA", "#FFA15A", "#19D3F3", "#FF6692"]; K = "#111111"
-LINES = ["k562ess", "rpe1", "hepg2", "jurkat"]
-NAME = {"k562ess": "K562", "rpe1": "RPE1", "hepg2": "HepG2", "jurkat": "Jurkat"}
+LINES = ["k562ess", "rpe1", "hepg2", "jurkat", "hct116", "hek293t"]
+NAME = {"k562ess": "K562", "rpe1": "RPE1", "hepg2": "HepG2", "jurkat": "Jurkat", "hct116": "HCT116", "hek293t": "HEK293T"}
 
 
 def runs(name): return json.load(open(R + name + ".json"))["runs"]
@@ -76,9 +76,10 @@ source("fig2d_share_k562", pd.DataFrame({"set": [s[0].replace("<br>", " ") for s
 style(fig, 820, 800).update_layout(legend=dict(x=0.19, y=0.03, yanchor="bottom", bgcolor="rgba(255,255,255,0.7)"), margin=dict(l=70, r=70, t=40, b=60))
 save(fig, "fig2_k562_two_screens")
 
-# ---------------------------------------------------------------- Figure 3: four cell lines, within and between
+# ---------------------------------------------------------------- Figure 3: six cell lines, within and between
 within = [("within_" + l, NAME[l]) for l in LINES]
-between = [(os.path.basename(f)[:-5], " and ".join(NAME[x] for x in os.path.basename(f)[8:-5].split("_"))) for f in sorted(glob.glob(R + "between_*.json"))]
+between = [(f"between_{a}_{b}", f"{NAME[a]} and {NAME[b]}") for i, a in enumerate(LINES) for b in LINES[i + 1:]]
+between += [(f"between_gwps_{b}", f"K562 and {NAME[b]}, genome-wide") for b in ("hct116", "hek293t")]
 comp = [("k562_two_screens", "K562, two screens")] + within + between
 rs = [get(f, "active_pairs") for f, _ in comp]
 labs = [n for _, n in comp]
@@ -89,10 +90,10 @@ for key, nm, c, sym in (("r_S", "Symmetric part", C[2], "circle"), ("r_A", "Skew
 v = [r["f_asym"] for r in rs]
 fig.add_trace(go.Scatter(y=labs, x=v, mode="markers", marker=dict(color=C[0], size=10, symbol="diamond"), showlegend=False, error_x=err([r["f_asym_ci"][0] for r in rs], [r["f_asym_ci"][1] for r in rs], v)), 1, 2)
 fig.add_vline(x=0.5, line=dict(color="#888888", dash="dash", width=1), row=1, col=2)
-for y0 in (0.5, 4.5): fig.add_hline(y=y0, line=dict(color="#BBBBBB", width=1))
+for y0 in (0.5, 0.5 + len(within), 0.5 + len(within) + 15): fig.add_hline(y=y0, line=dict(color="#BBBBBB", width=1))
 fig.update_xaxes(title_text="Pearson correlation", range=[0, 1], row=1, col=1); fig.update_xaxes(title_text="Skew-symmetric share", range=[0, 0.6], row=1, col=2)
 fig.update_yaxes(autorange="reversed")
-style(fig, 820, 520).update_layout(legend=dict(x=0.01, y=0.99, yanchor="top", bgcolor="rgba(255,255,255,0.7)"), margin=dict(l=170, r=20, t=40, b=60))
+style(fig, 820, 860).update_layout(legend=dict(x=0.20, y=0.01, yanchor="bottom", bgcolor="rgba(255,255,255,0.7)"), margin=dict(l=215, r=20, t=40, b=60))
 save(fig, "fig3_cell_lines")
 source("fig3_cell_lines", pd.DataFrame({"comparison": labs, "genes": [r["n_genes"] for r in rs], "active_pairs": [r["n_pairs"] for r in rs], "r_symmetric": [r["r_S"] for r in rs], "r_symmetric_ci_low": [r["r_S_ci"][0] for r in rs], "r_symmetric_ci_high": [r["r_S_ci"][1] for r in rs],
                                         "r_skew": [r["r_A"] for r in rs], "r_skew_ci_low": [r["r_A_ci"][0] for r in rs], "r_skew_ci_high": [r["r_A_ci"][1] for r in rs], "skew_share": v, "share_ci_low": [r["f_asym_ci"][0] for r in rs], "share_ci_high": [r["f_asym_ci"][1] for r in rs]}))
@@ -159,7 +160,7 @@ for col, (pc, cc) in enumerate((("r_prediction", "r_ceiling"), ("r_symmetric_par
         fig.add_trace(go.Bar(x=s.screen, y=s[pc], name=lab, marker_color=c, showlegend=(col == 1)), 1, col)
     s = lr[lr.predictor == "symmetric"]
     fig.add_trace(go.Scatter(x=s.screen, y=s[cc], mode="markers", marker=dict(color=K, size=11, symbol="line-ew", line=dict(color=K, width=3)), name="Second screen (ceiling)", showlegend=(col == 1)), 1, col)
-    fig.update_xaxes(tickangle=-60, row=1, col=col)
+    fig.update_xaxes(tickangle=-90, row=1, col=col)
 fig.update_yaxes(title_text="Correlation with the second screen", row=1, col=1); fig.update_yaxes(range=[-0.3, 0.8])
 fig.add_hline(y=0, line=dict(color=K, width=1))
 style(fig, 820, 600).update_layout(barmode="group", legend=dict(orientation="h", x=0.0, y=-0.36, yanchor="top"), margin=dict(l=70, r=20, t=40, b=190))

@@ -10,3 +10,8 @@ neighbouring rights to these files.
 Full legal text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
 
 Files derived from third-party resources keep the terms of their sources (data/README_DATA.md).
+
+Tables derived from the X-Atlas/Orion screens of Huang et al. 2025 (file names that contain hct116 or
+hek293t, and the reduced matrices of these two screens) are not covered by the dedication above. They
+are shared under the terms of that dataset, CC BY-NC-SA 4.0
+(https://creativecommons.org/licenses/by-nc-sa/4.0/).

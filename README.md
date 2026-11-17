@@ -1,7 +1,7 @@
 # Non-reciprocal responses to gene knockdown in genome-scale Perturb-seq screens
 
 Code, analysis plan and results for a test of reciprocity in the gene-by-gene response matrix of
-five CRISPR interference Perturb-seq screens in four human cell lines.
+seven CRISPR interference Perturb-seq screens in six human cell lines.
 
 Author: Thai Huu Loc Tran, Department of Obstetrics and Gynecology, Hong Hung Hospital, Tay Ninh City 80116,
 Viet Nam (tranthaihuuloc2@gmail.com, ORCID 0009-0009-1810-010X).
@@ -31,6 +31,11 @@ Definitions, thresholds, the rules fixed in advance and their outcomes are in `A
 | RPE1, cell quarters | 1,596 | 141,202 | 0.87 | 0.87 | 0.462 (0.453 to 0.471) |
 | HepG2, cell quarters | 1,738 | 85,938 | 0.75 | 0.78 | 0.475 (0.467 to 0.482) |
 | Jurkat, cell quarters | 1,643 | 56,149 | 0.85 | 0.88 | 0.496 (0.493 to 0.499) |
+| HCT116, cell quarters (genome-wide screen) | 6,568 | 200,091 | 0.61 | 0.63 | 0.494 (0.490 to 0.498) |
+| HEK293T, cell quarters (genome-wide screen) | 6,576 | 193,070 | 0.56 | 0.57 | 0.492 (0.486 to 0.498) |
+| HCT116 and HEK293T | 6,459 | 345,313 | 0.28 | 0.29 | 0.484 (0.477 to 0.490) |
+| K562 and HCT116, genome-wide screens | 4,446 | 256,465 | 0.38 | 0.40 | 0.493 (0.487 to 0.497) |
+| K562 and HEK293T, genome-wide screens | 4,465 | 249,426 | 0.37 | 0.39 | 0.492 (0.486 to 0.498) |
 
 With all responses to a knockdown withheld, a model trained on the other knockdowns predicted them
 with a correlation of 0.37 to 0.57 with the second screen (skew-symmetric part 0.37 to 0.57), against
@@ -59,6 +64,8 @@ All estimates are in `results/`, and the data behind every figure panel are in
 - `scripts/download_annotations.sh` curated gene-pair annotations (DoRothEA, TRRUST, CollecTRI, CORUM,
   transcription start sites). `scripts/complex_families.sh` six complexes named by gene family.
 - `scripts/build_reduced.sh` public single-cell files to `reduced/` and `reduced_raw/` (count shifts).
+- `scripts/build_reduced_xatlas.sh`, `tools/xatlas_cache/` the two genome-wide X-Atlas/Orion screens
+  (HCT116, HEK293T) from their parquet shards to `reduced/`.
 - `run_all.sh` every analysis of the article, from `reduced/` to `results/`.
 - `scripts/plot_figures.py`, `scripts/make_flowchart.py` figures 1 to 7 and their source data.
 - `results/` result tables. `figures/` figure files (PDF).
@@ -71,13 +78,15 @@ and `rsvg-convert`. For the step from raw data, the HDF5 library and Python with
 ```
 bash scripts/download_annotations.sh     # annotations, a few megabytes
 bash scripts/build_reduced.sh            # raw data to reduced screens (about 25 GB of downloads)
+bash scripts/build_reduced_xatlas.sh     # HCT116 and HEK293T (about 130 GB of downloads, 64 GB of memory)
 bash run_all.sh                          # all analyses
 python3 scripts/make_flowchart.py && python3 scripts/plot_figures.py
 ```
 
 The reduced screens (the output of `build_reduced.sh`) are attached to the release as
 `reduced_screens.tar.zst` and `reduced_raw_screens.tar.zst`, which allows `run_all.sh` to be run without
-the raw data. Unpack both archives in the repository root.
+the raw data. Unpack both archives in the repository root. The reduced HCT116 and HEK293T screens
+are a separate archive, `reduced_xatlas_screens.tar.zst`, under the CC BY-NC-SA 4.0 terms of that dataset.
 
 `run_all.sh` uses all processor threads (set `RAYON_NUM_THREADS` to change this). The bootstrap and
 permutation steps draw from fixed random streams, and repeated runs give identical tables.
@@ -88,6 +97,7 @@ permutation steps draw from fixed random streams, and repeated runs give identic
 |---|---|
 | K562 genome-wide, K562 essential-gene, RPE1 essential-gene screens | Replogle et al., Cell 2022, as distributed by scPerturb (Zenodo record 13350497) |
 | HepG2 and Jurkat essential-gene screens | Nadig et al., Nature Genetics 2025 (GEO GSE264667) |
+| HCT116 and HEK293T genome-wide screens (X-Atlas/Orion) | Huang et al., bioRxiv 2025 (Hugging Face dataset Xaira-Therapeutics/X-Atlas-Orion, CC BY-NC-SA 4.0) |
 | Transcription factor and target pairs | DoRothEA confidence A and B, CollecTRI (through OmniPath), TRRUST v2 |
 | Protein complexes | CORUM (through OmniPath) |
 | Transcription start sites | NCBI RefSeq Select, hg38 (UCSC) |
@@ -97,4 +107,6 @@ Third-party annotation files are downloaded by the script and are not redistribu
 ## Licence
 
 The code is released under the MIT licence (`LICENSE`). The result tables and figure source data in
-`results/` are released under CC0 1.0.
+`results/` are released under CC0 1.0, with the exception of the tables derived from the X-Atlas/Orion
+screens (file names that contain `hct116` or `hek293t`), which follow the CC BY-NC-SA 4.0 terms of that
+dataset (`LICENSE-DATA`).

@@ -1,0 +1,18 @@
+[package]
+name = "xatlas_cache"
+version = "1.0.0"
+edition = "2021"
+description = "X-Atlas/Orion parquet shards to the sparse cell cache read by the reduce step"
+license = "MIT"
+
+[dependencies]
+anyhow = "1"
+rayon = "1"
+bytemuck = { version = "1", features = ["extern_crate_alloc"] }
+arrow-array = "53"
+arrow-schema = "53"
+parquet = { version = "53", default-features = false, features = ["arrow", "snap", "zstd", "lz4", "flate2"] }
+
+[profile.release]
+lto = "fat"
+codegen-units = 1

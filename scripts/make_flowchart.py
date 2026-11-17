@@ -19,8 +19,8 @@ def get(name, s, floor=0.25, kind="scaled"):
     return next(r for r in json.load(open(R + name + ".json"))["runs"] if r["set"] == s and r["umi_floor"] == floor and r["matrix"] == kind)
 
 
-FIVE = ["k562_two_screens", "within_k562ess", "within_rpe1", "within_hepg2", "within_jurkat"]
-SHORT = ["K562 x2", "K562", "RPE1", "HepG2", "Jurkat"]
+FIVE = ["k562_two_screens", "within_k562ess", "within_rpe1", "within_hepg2", "within_jurkat", "within_hct116", "within_hek293t"]
+SHORT = ["K562 x2", "K562", "RPE1", "HepG2", "Jurkat", "HCT", "HEK"]
 k562 = get("k562_two_screens", "active_pairs")
 share = [get(f, "active_pairs")["f_asym"] for f in FIVE]
 cpx = [get(f, "complex_active")["f_asym"] for f in FIVE]
@@ -70,7 +70,7 @@ def matrix(x, y, n, s, fn):
                 add(f"<rect x='{x + j * s:.1f}' y='{y + i * s:.1f}' width='{s - 3}' height='{s - 3}' fill='white' stroke='{LINE}' stroke-width='2'/>")
 
 
-def bars(x0, y0, w, h, vals, col, labels, ymax, fmt="{:.2f}", ref=None, ylab=None, opac=None):
+def bars(x0, y0, w, h, vals, col, labels, ymax, fmt="{:.2f}", ref=None, ylab=None, opac=None, lift=None):
     line(x0, y0, x0 + w, y0, INK, 2.5); line(x0, y0, x0, y0 - h, INK, 2.5)
     step = w / len(vals)
     if ref is not None:
@@ -78,8 +78,8 @@ def bars(x0, y0, w, h, vals, col, labels, ymax, fmt="{:.2f}", ref=None, ylab=Non
     for i, v in enumerate(vals):
         bh = v / ymax * h
         add(f"<rect x='{x0 + i * step + step * 0.18:.1f}' y='{y0 - bh:.1f}' width='{step * 0.64:.1f}' height='{bh:.1f}' fill='{col}' fill-opacity='{opac[i] if opac else 1}'/>")
-        text(x0 + (i + 0.5) * step, y0 - bh - 8, fmt.format(v), 21, anchor="middle")
-        text(x0 + (i + 0.5) * step, y0 + 28, labels[i], 21, anchor="middle")
+        text(x0 + (i + 0.5) * step, y0 - bh - 8 - (lift[i] if lift else 0), fmt.format(v), 21, anchor="middle")
+        text(x0 + (i + 0.5) * step, y0 + 28, labels[i], 20 if len(vals) > 5 else 21, anchor="middle")
     if ylab:
         add(f"<text transform='translate({x0 - 14},{y0 - h / 2}) rotate(-90)' font-family='{FONT}' font-size='23' text-anchor='middle' fill='{INK}'>{ylab}</text>")
 
@@ -123,8 +123,8 @@ add(f"<rect x='{C3 + 60 + 100 + 18:.1f}' y='{y + 215 - k562['r_A'] * 130:.1f}' w
 text(C3 + 300, y + 120, "between the", 23); text(C3 + 300, y + 148, "two screens", 23)
 text(C3 + 300, y + 196, f"skew share {k562['f_asym']:.2f}", 23, "bold", fill=BLUE)
 
-# ------------------------------------------------ row 2: four cell lines
-y = row(1, GREEN, "Four cell lines", ["Replogle: K562, RPE1", "Nadig: HepG2, Jurkat", "Essential-gene screens"], "Fig. 3")
+# ------------------------------------------------ row 2: six cell lines
+y = row(1, GREEN, "Six cell lines", ["Replogle: K562, RPE1", "Nadig: HepG2, Jurkat", "Huang: HCT116, HEK293T", "(genome-wide)"], "Fig. 3")
 for q, (cx, lab) in enumerate(((C2 + 60, "quarter 1"), (C2 + 190, "quarter 2"), (C2 + 370, "quarter 3"), (C2 + 500, "quarter 4"))):
     for k in range(6):
         cell(cx - 28 + (k % 3) * 28, y + 95 + (k // 3) * 28, GREEN)
@@ -132,7 +132,7 @@ for q, (cx, lab) in enumerate(((C2 + 60, "quarter 1"), (C2 + 190, "quarter 2"), 
 line(C2 + 280, y + 70, C2 + 280, y + 175, GREY, 2.5, "6 5")
 text(C2 + 125, y + 205, "screen 1", 23, "bold", "middle"); text(C2 + 435, y + 205, "screen 2", 23, "bold", "middle")
 text(C2 + 280, y + 240, "cells of one knockdown, and pairs of cell lines", 22, anchor="middle")
-bars(C3 + 60, y + 205, 470, 120, share, BLUE, SHORT, 0.6, ref=0.5, ylab="skew share")
+bars(C3 + 60, y + 205, 540, 120, share, BLUE, SHORT, 0.6, ref=0.5, ylab="skew share")
 
 # ------------------------------------------------ row 3: classes of gene pairs
 y = row(2, ORANGE, "Classes of gene pairs", ["CORUM: protein complexes", "DoRothEA, TRRUST, CollecTRI:", "transcription factor and target"], "Fig. 4")
@@ -142,7 +142,7 @@ text(C2 + 130, y + 185, "subunits of", 23, anchor="middle"); text(C2 + 130, y + 
 gene(C2 + 360, y + 110, "TF", PURPLE, 34); gene(C2 + 530, y + 110, "T", PURPLE)
 line(C2 + 400, y + 110, C2 + 492, y + 110, PURPLE, 4, head=True)
 text(C2 + 445, y + 185, "transcription factor", 23, anchor="middle"); text(C2 + 445, y + 213, "and target", 23, anchor="middle")
-bars(C3 + 60, y + 205, 210, 120, [sum(share) / 5, sum(cpx) / 5], ORANGE, ["other", "complex"], 0.6, ref=0.5, ylab="skew share", opac=[0.4, 1])
+bars(C3 + 60, y + 205, 210, 120, [sum(share) / len(share), sum(cpx) / len(cpx)], ORANGE, ["other", "complex"], 0.6, ref=0.5, ylab="skew share", opac=[0.4, 1])
 bars(C3 + 370, y + 215, 210, 100, [100 * tf[3], 100 * tf[4]], PURPLE, ["HepG2", "Jurkat"], 100, fmt="{:.0f}%", ref=50)
 text(C3 + 475, y + 84, "larger effect TF to target", 20, anchor="middle")
 
@@ -154,7 +154,7 @@ for dy in (-50, 0, 50):
     line(C2 + 90, y + 130 + dy, C2 + 236, y + 130 + dy * 0.4, RED, 4, head=True)
 text(C2 + 480, y + 100, "sent", 24, fill=BLUE); text(C2 + 18, y + 100, "received", 24, fill=RED, anchor="start")
 text(C2 + 280, y + 225, "removed before the pair-specific share", 22, anchor="middle")
-bars(C3 + 60, y + 205, 470, 120, [100 * g for g in gl], PURPLE, SHORT, 60, fmt="{:.0f}%", ylab="gene-level")
+bars(C3 + 60, y + 205, 540, 120, [100 * g for g in gl], PURPLE, SHORT, 60, fmt="{:.0f}%", ylab="gene-level")
 
 # ------------------------------------------------ row 5: prediction from co-expression
 y = row(4, RED, "Prediction of the response", ["Co-expression in control", "cells, or a model trained", "on other knockdowns"], "Figs. 6, 7")
@@ -167,12 +167,12 @@ text(C2 + 306, y + 200, "predicted", 23, anchor="middle", fill=RED); text(C2 + 3
 text(C2 + 395, y + 124, "vs", 26, anchor="middle")
 matrix(C2 + 430, y + 62, 4, 28, lambda i, j: None if i == j else full.get((i, j)))
 text(C2 + 486, y + 200, "second", 23, anchor="middle"); text(C2 + 486, y + 228, "screen", 23, anchor="middle")
-bx, by, bw, bh = C3 + 60, y + 205, 420, 120
-bars(bx, by, bw, bh, fit, RED, SHORT, 0.8, ylab="correlation")
+bx, by, bw, bh = C3 + 60, y + 205, 540, 120
+bars(bx, by, bw, bh, fit, RED, SHORT, 0.8, ylab="correlation", lift=[max(0, (c - f) / 0.8 * bh + 6) if 0 <= (c - f) / 0.8 * bh < 30 or c < f else 0 for f, c in zip(fit, ceil)])
 for i, c in enumerate(ceil):
-    x0 = bx + i * bw / 5
-    line(x0 + 10, by - c / 0.8 * bh, x0 + bw / 5 - 10, by - c / 0.8 * bh, INK, 4)
-text(bx + bw + 10, by - ceil[-1] / 0.8 * bh + 8, "ceiling", 22)
+    x0 = bx + i * bw / len(ceil)
+    line(x0 + 8, by - c / 0.8 * bh, x0 + bw / len(ceil) - 8, by - c / 0.8 * bh, INK, 4)
+text(bx + bw, by + 58, "black line: second screen", 21, anchor="end")
 
 H = Y0 + 5 * RH + 10
 out = "\n".join(svg).replace("@H@", str(H)).replace("@HMM@", f"{H / 10:.0f}") + "</svg>"

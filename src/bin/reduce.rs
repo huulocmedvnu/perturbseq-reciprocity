@@ -153,36 +153,47 @@ fn main() -> Result<()> {
     // z = z0_b + d, with d non-zero only where the count is non-zero, so
     // sum z z' = sum_b [ n_b z0 z0' + z0 D_b' + D_b z0' ] + sum_cells d d'.
     let ctrl_cells = c.cells(ctrl);
-    let (dd, dsum) = ctrl_cells.par_chunks(256).fold(
-        || (vec![0f64; n * n], vec![0f64; nb * n]),
-        |(mut acc, mut ds), chunk| {
-            let mut kk: Vec<usize> = Vec::new();
-            let mut dv: Vec<f64> = Vec::new();
-            for &cell in chunk {
-                let cell = cell as usize;
-                let b = bat(cell);
-                if cnt_b[b] < 20.0 { continue; }
-                let sc = 1e4 / c.lib[cell] as f64;
-                let (ix, ct) = c.row(cell);
-                kk.clear(); dv.clear();
-                for (&j, &v) in ix.iter().zip(ct) {
-                    let k = cmap[j as usize];
-                    if k == NONE { continue; }
-                    let k = k as usize;
-                    let d = (tx(v as f64, sc) - mu[b * n + k] as f64) * isd[b * n + k] as f64 - z0[b * n + k] as f64;
-                    kk.push(k); dv.push(d);
-                    ds[b * n + k] += d;
-                }
-                for (x, &kx) in kk.iter().enumerate() {
-                    let row = &mut acc[kx * n..(kx + 1) * n];
-                    let dx = dv[x];
-                    for (y, &ky) in kk.iter().enumerate() { row[ky] += dx * dv[y]; }
-                }
-            }
-            (acc, ds)
-        }).reduce(
-        || (vec![0f64; n * n], vec![0f64; nb * n]),
-        |(mut a, mut b), (c2, d2)| { for (x, y) in a.iter_mut().zip(&c2) { *x += y; } for (x, y) in b.iter_mut().zip(&d2) { *x += y; } (a, b) });
+    // d of every control cell (genes with a non-zero count), in cell order
+    let rows: Vec<(Vec<u32>, Vec<f64>)> = ctrl_cells.par_iter().map(|&cell| {
+        let cell = cell as usize;
+        let b = bat(cell);
+        if cnt_b[b] < 20.0 { return (Vec::new(), Vec::new()); }
+        let sc = 1e4 / c.lib[cell] as f64;
+        let (ix, ct) = c.row(cell);
+        let (mut kk, mut dv) = (Vec::with_capacity(ix.len()), Vec::with_capacity(ix.len()));
+        for (&j, &v) in ix.iter().zip(ct) {
+            let k = cmap[j as usize];
+            if k == NONE { continue; }
+            let k = k as usize;
+            kk.push(k as u32);
+            dv.push((tx(v as f64, sc) - mu[b * n + k] as f64) * isd[b * n + k] as f64 - z0[b * n + k] as f64);
+        }
+        (kk, dv)
+    }).collect();
+    let mut dsum = vec![0f64; nb * n];
+    for (&cell, (kk, dv)) in ctrl_cells.iter().zip(&rows) {
+        let b = bat(cell as usize);
+        for (&k, &d) in kk.iter().zip(dv) { dsum[b * n + k as usize] += d; }
+    }
+    // the same entries by gene, so that each row of the product is summed by one thread in cell order
+    let mut off = vec![0usize; n + 1];
+    for (kk, _) in &rows { for &k in kk { off[k as usize + 1] += 1; } }
+    for k in 0..n { off[k + 1] += off[k]; }
+    let mut fill = off.clone();
+    let mut col_cell = vec![0u32; off[n]];
+    let mut col_val = vec![0f64; off[n]];
+    for (ci, (kk, dv)) in rows.iter().enumerate() {
+        for (&k, &d) in kk.iter().zip(dv) { let e = fill[k as usize]; col_cell[e] = ci as u32; col_val[e] = d; fill[k as usize] += 1; }
+    }
+    let mut dd = vec![0f64; n * n];
+    dd.par_chunks_mut(n).enumerate().for_each(|(i, row)| {
+        for e in off[i]..off[i + 1] {
+            let (kk, dv) = &rows[col_cell[e] as usize];
+            let di = col_val[e];
+            for (&k, &d) in kk.iter().zip(dv) { row[k as usize] += di * d; }
+        }
+    });
+    drop((rows, col_cell, col_val));
     let mut cc = dd;
     cc.par_chunks_mut(n).enumerate().for_each(|(i, row)| {
         for b in 0..nb {

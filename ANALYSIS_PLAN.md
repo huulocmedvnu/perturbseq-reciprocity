@@ -87,3 +87,13 @@ concentrate in pairs with a large skew-symmetric part.
   trained on other knockdowns reached 0.41 to 0.54 and co-expression with one scale at most 0.20.
 - Prediction of the response matrix of one cell line from the three others.
   Outcome: 0.49 to 0.54. Co-expression of the target line changed this by -0.04 to 0.02.
+- Two genome-wide screens of further cell lines, HCT116 and HEK293T (X-Atlas/Orion, Huang et
+  al. 2025), with the definitions of section 2. Genes: knockdown targets with a mean of at
+  least 0.25 UMI per control cell. Comparisons: cell quarters within each screen, each screen
+  against the four essential-gene screens, the two screens against each other and the
+  genome-wide K562 screen against each of them.
+  Outcome: share among active pairs 0.494 (0.490 to 0.498) in HCT116 (6,568 genes) and 0.492
+  (0.486 to 0.498) in HEK293T (6,576 genes), 0.484 (0.477 to 0.490) between the two, 0.493 and
+  0.492 against the genome-wide K562 screen, and 0.446 to 0.492 against the essential-gene
+  screens. Direction rule: 52 of 83 and 56 of 86 pairs in HCT116, 90 of 116 and 61 of 99 in
+  HEK293T. Complex subunits (CORUM): 0.395 (0.297 to 0.471) and 0.410 (0.326 to 0.504).
