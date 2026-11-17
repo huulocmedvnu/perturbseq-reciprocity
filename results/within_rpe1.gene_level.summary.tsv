@@ -1,0 +1,6 @@
+umi_floor	matrix	n_genes	V_sym	V_asym	f_asym	share_of_V_asym_gene_level	f_asym_pair_specific	r_A_pair_specific	r_S_pair_specific	r_gene_level_term	rho_sent_vs_received
+0.25	scaled	1596	185616.608	160615.212	0.4639	0.3348	0.4953	0.5563	0.5615	0.9744	-0.3702
+0.25	raw	1596	124313.538	107495.354	0.4637	0.3764	0.5022	0.5629	0.5609	0.9808	0.0778
+select	read	n_pairs_both_directions_t3	same_sign	fraction
+screen1	screen2	15674	10740	0.6852
+screen2	screen1	15205	10211	0.6716

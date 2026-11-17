@@ -1,0 +1,6 @@
+set,pairs,share,ci_low,ci_high
+All pairs,1125750,0.4986,0.4944,0.5023
+Active pairs,88630,0.499,0.4956,0.502
+"Active, neighbours excluded",88444,0.4992,0.4958,0.5023
+"Active, unscaled response",88630,0.4777,0.4611,0.4923
+"Active, 0.5 UMI floor",64257,0.4956,0.4898,0.5007

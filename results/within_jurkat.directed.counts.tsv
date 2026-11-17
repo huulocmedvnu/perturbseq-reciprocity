@@ -1,0 +1,2 @@
+screen1	screen2	umi_floor	n_genes	n_pairs	pairs_with_replicated_effect	both_directions	both_directions_same_sign	one_direction_reverse_absent	one_direction_reverse_intermediate	fraction_both_directions	median_reverse_to_forward_ratio_one_direction	median_smaller_to_larger_ratio_both_directions
+reduced/jurkat	SPLIT	0.25	1643	1348903	54488	790	540	42445	11253	0.0145	0.0570	0.4518

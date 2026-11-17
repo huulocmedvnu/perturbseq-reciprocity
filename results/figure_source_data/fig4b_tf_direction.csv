@@ -1,0 +1,11 @@
+screen,database,pairs_read_in_both_directions_of_selection,larger_effect_from_factor_to_target,percent
+"K562, two screens","DoRothEA A, B and TRRUST",32,23,71.875
+K562,"DoRothEA A, B and TRRUST",25,14,56.0
+RPE1,"DoRothEA A, B and TRRUST",60,33,55.0
+HepG2,"DoRothEA A, B and TRRUST",104,78,75.0
+Jurkat,"DoRothEA A, B and TRRUST",117,98,83.76068376068376
+"K562, two screens",CollecTRI,67,38,56.71641791044776
+K562,CollecTRI,61,37,60.65573770491803
+RPE1,CollecTRI,114,54,47.36842105263158
+HepG2,CollecTRI,216,167,77.31481481481481
+Jurkat,CollecTRI,237,191,80.59071729957806

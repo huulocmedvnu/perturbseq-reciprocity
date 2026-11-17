@@ -1,0 +1,2 @@
+screen1	screen2	umi_floor	n_genes	n_pairs	pairs_with_replicated_effect	both_directions	both_directions_same_sign	one_direction_reverse_absent	one_direction_reverse_intermediate	fraction_both_directions	median_reverse_to_forward_ratio_one_direction	median_smaller_to_larger_ratio_both_directions
+reduced/hepg2	SPLIT	0.25	1738	1509453	90345	1920	1302	68396	20029	0.0213	0.1650	0.3392

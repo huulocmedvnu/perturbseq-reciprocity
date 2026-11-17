@@ -1,0 +1,2 @@
+screen1	screen2	umi_floor	n_genes	n_pairs	pairs_with_replicated_effect	both_directions	both_directions_same_sign	one_direction_reverse_absent	one_direction_reverse_intermediate	fraction_both_directions	median_reverse_to_forward_ratio_one_direction	median_smaller_to_larger_ratio_both_directions
+reduced/gwps	reduced/k562ess	0.25	1501	1125750	76362	2425	1595	48492	25445	0.0318	0.0684	0.3619

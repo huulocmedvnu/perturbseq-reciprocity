@@ -1,0 +1,15 @@
+/target
+reduced/
+cache/
+raw/
+builder/
+manuscript/
+_local/
+logs/
+data/annotations/*.tsv
+results/*.log
+figures/*.png
+figures/*.svg
+*.log
+__pycache__/
+.DS_Store

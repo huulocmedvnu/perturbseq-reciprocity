@@ -1,0 +1,20 @@
+cff-version: 1.2.1
+message: "If you use this code or the result tables, please cite it as below."
+title: "Non-reciprocal responses to gene knockdown in genome-scale Perturb-seq screens: code, analysis plan and results"
+type: software
+authors:
+  - family-names: Tran
+    given-names: Thai Huu Loc
+    email: tranthaihuuloc2@gmail.com
+    orcid: "https://orcid.org/0009-0009-1810-010X"
+    affiliation: "Department of Obstetrics and Gynecology, Hong Hung Hospital, Tay Ninh City 80116, Viet Nam"
+repository-code: "https://github.com/huulocmedvnu/perturbseq-reciprocity"
+license: MIT
+version: 1.0.0
+date-released: 2026-11-17
+keywords:
+  - Perturb-seq
+  - CRISPR interference
+  - linear response
+  - reciprocity
+  - gene regulatory network
