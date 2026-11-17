@@ -86,7 +86,13 @@ python3 scripts/make_flowchart.py && python3 scripts/plot_figures.py
 The reduced screens (the output of `build_reduced.sh`) are attached to the release as
 `reduced_screens.tar.zst` and `reduced_raw_screens.tar.zst`, which allows `run_all.sh` to be run without
 the raw data. Unpack both archives in the repository root. The reduced HCT116 and HEK293T screens
-are a separate archive, `reduced_xatlas_screens.tar.zst`, under the CC BY-NC-SA 4.0 terms of that dataset.
+are separate archives in two parts each, under the CC BY-NC-SA 4.0 terms of that dataset. Join the parts
+before unpacking:
+
+```
+cat reduced_xatlas_hct116.tar.zst.part* | tar --zstd -xf -
+cat reduced_xatlas_hek293t.tar.zst.part* | tar --zstd -xf -
+```
 
 `run_all.sh` uses all processor threads (set `RAYON_NUM_THREADS` to change this). The bootstrap and
 permutation steps draw from fixed random streams, and repeated runs give identical tables.
