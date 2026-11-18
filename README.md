@@ -68,6 +68,7 @@ All estimates are in `results/`, and the data behind every figure panel are in
   (HCT116, HEK293T) from their parquet shards to `reduced/`.
 - `run_all.sh` every analysis of the article, from `reduced/` to `results/`.
 - `scripts/plot_figures.py`, `scripts/make_flowchart.py` figures 1 to 7 and their source data.
+- `lean_proofs/` Lean 4 proofs of the algebraic identities in Methods (see its README).
 - `results/` result tables. `figures/` figure files (PDF).
 
 ## Reproduce
@@ -93,6 +94,8 @@ before unpacking:
 cat reduced_xatlas_hct116.tar.zst.part* | tar --zstd -xf -
 cat reduced_xatlas_hek293t.tar.zst.part* | tar --zstd -xf -
 ```
+
+The proofs in `lean_proofs/` are checked with `lake exe cache get && lake build` in that folder.
 
 `run_all.sh` uses all processor threads (set `RAYON_NUM_THREADS` to change this). The bootstrap and
 permutation steps draw from fixed random streams, and repeated runs give identical tables.
