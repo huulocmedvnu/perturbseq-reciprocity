@@ -3,8 +3,9 @@
 Code, analysis plan and results for a test of reciprocity in the gene-by-gene response matrix of
 seven CRISPR interference Perturb-seq screens in six human cell lines.
 
-Author: Thai Huu Loc Tran, Department of Obstetrics and Gynecology, Hong Hung Hospital, Tay Ninh City 80116,
-Viet Nam (tranthaihuuloc2@gmail.com, ORCID 0009-0009-1810-010X).
+Authors: Thai Huu Loc Tran (Department of Obstetrics and Gynecology, Hong Hung Hospital, Tay Ninh City 80116,
+Viet Nam, tranthaihuuloc2@gmail.com, ORCID 0009-0009-1810-010X) and Thi Van Nguyen (Department of Artificial
+Intelligence Convergence, Chonnam National University, Gwangju 61186, Republic of Korea, ORCID 0009-0009-4255-2480).
 
 ## Question
 
