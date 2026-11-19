@@ -1,5 +1,7 @@
 # Non-reciprocal responses to gene knockdown in genome-scale Perturb-seq screens
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24358087.svg)](https://doi.org/10.5281/zenodo.24358087)
+
 Code, analysis plan and results for a test of reciprocity in the gene-by-gene response matrix of
 seven CRISPR interference Perturb-seq screens in six human cell lines.
 
